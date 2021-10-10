@@ -22,8 +22,6 @@ app.get('/', (req: Request, res: Response) => {
 routes.push(new UsersRoutes(app));
 routes.push(new CountryRoutes(app));
 
-
-
 app.listen(PORT, () => {
   routes.forEach((route: CommonRoutesConfig) => {
     console.log(`Routes configured for ${route.getName}`);
