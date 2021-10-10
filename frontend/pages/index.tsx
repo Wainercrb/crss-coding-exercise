@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Header } from '../components/Header/Header';
 import { AppContext } from '../contexts/appContext';
 import { FullStatsWrapper } from '../components/AuthStatsWrapper/AuthStatsWrapper';
+import { GeneralStatsWrapper } from '../components/GeneralStatsWrapper/GeneralStatsWrapper';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
@@ -23,7 +24,16 @@ const Home: NextPage = () => {
         <div className={styles.mainContent}>
           <div>
             <h1>With auth system</h1>
-            {isAuthenticated && <FullStatsWrapper />}
+            {isAuthenticated && (
+              <div>
+                <h2>General statistics</h2>
+                <GeneralStatsWrapper />
+                <br />
+                <h2>Country statistics</h2>
+                <FullStatsWrapper />
+                <br />
+              </div>
+            )}
           </div>
         </div>
       </main>

@@ -41,13 +41,32 @@ export const fetchGetCountryByCode = async (countryCode: string) => {
   });
 };
 
-export const fetchAllListCountries = async ({ token, limit, skip, text, sort }: TFetchContriesArgs) => {
+export const fetchGeneralStats = async (token: string) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  return fetchRequest({
+    url: `${API_URL}/get-general-stats`,
+    method: 'GET',
+    headers,
+  });
+};
+
+export const fetchAllListCountries = async ({
+  token,
+  limit,
+  skip,
+  text,
+  sort,
+}: TFetchContriesArgs) => {
   const headers = {
     Authorization: `Bearer ${token}`,
   };
   const findText = text.length ? `findText=${text}&` : '';
   const splitSortArgs = sort.length ? sort.split('&') : '';
-  const sortArg = splitSortArgs ? `sortKey=${splitSortArgs[0]}&sortValue=${splitSortArgs[1]}&`: ''
+  const sortArg = splitSortArgs
+    ? `sortKey=${splitSortArgs[0]}&sortValue=${splitSortArgs[1]}&`
+    : '';
   return fetchRequest({
     url: `${API_URL}/get-all-country-stats?${findText}${sortArg}limit=${limit}&skip=${skip}`,
     method: 'GET',
