@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "env-cmd -f .env node ./dist/lib/server.js",
+    "start": "env-cmd -f .env node ./dist/server.js",
     "dev": "env-cmd -f .env ts-node-dev ./lib/server.ts",
     "build": "env-cmd -f .env tsc"
   },

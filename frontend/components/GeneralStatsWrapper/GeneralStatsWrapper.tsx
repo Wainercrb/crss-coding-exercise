@@ -11,7 +11,6 @@ export function GeneralStatsWrapper() {
   const { appState } = useContext(AppContext);
 
   const formatData = (res: any) => {
-    console.log('es',res)
     setData(res.data);
     setLoading(false);
   };
