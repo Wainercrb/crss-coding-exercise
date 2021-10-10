@@ -1,4 +1,5 @@
 import CountryController from './controllers/canton.controller';
+import GeneralStatsController from './controllers/generalStats.controller';
 import CountryStatsController from './controllers/countryStats.controller';
 import CountryStatsValidator from './validators/countryStats.validator';
 import { Application } from 'express';
@@ -29,6 +30,12 @@ export class CountryRoutes extends CommonRoutesConfig {
       this.checkGenericAuth,
       CountryStatsValidator.validatePaginationArgs,
       CountryStatsController.getAllCountryStats
+    );
+
+    this.app.get(
+      '/get-general-stats',
+      this.checkGenericAuth,
+      GeneralStatsController.getGeneralStatsByCode
     );
 
     return this.app;
