@@ -19,6 +19,10 @@ app.get('/', (req: Request, res: Response) => {
     res.status(200).send(`Server running at http://localhost:${PORT}`);
 });
 
+app.get('/ping', (req: Request, res: Response) => {
+    res.status(200).send('Server works :)');
+});
+
 routes.push(new UsersRoutes(app));
 routes.push(new CountryRoutes(app));
 
