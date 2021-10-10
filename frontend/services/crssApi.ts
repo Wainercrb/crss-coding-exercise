@@ -9,6 +9,14 @@ type TFetchArgs = {
   };
 };
 
+type TFetchContriesArgs = {
+  token: string;
+  limit: number;
+  skip: number;
+  text: string;
+  sort: string;
+};
+
 const fetchRequest = async ({ url, headers, body, method }: TFetchArgs) => {
   const response = await fetch(url, { headers, body, method });
   const data = await response.json();
@@ -30,5 +38,19 @@ export const fetchGetCountryByCode = async (countryCode: string) => {
   return fetchRequest({
     url: `${API_URL}/get-country-stats-by-code/${countryCode}`,
     method: 'GET',
+  });
+};
+
+export const fetchAllListCountries = async ({ token, limit, skip, text, sort }: TFetchContriesArgs) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  const findText = text.length ? `findText=${text}&` : '';
+  const splitSortArgs = sort.length ? sort.split('&') : '';
+  const sortArg = splitSortArgs ? `sortKey=${splitSortArgs[0]}&sortValue=${splitSortArgs[1]}&`: ''
+  return fetchRequest({
+    url: `${API_URL}/get-all-country-stats?${findText}${sortArg}limit=${limit}&skip=${skip}`,
+    method: 'GET',
+    headers,
   });
 };

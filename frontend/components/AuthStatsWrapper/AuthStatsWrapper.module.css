@@ -1,0 +1,12 @@
+.currentPage {
+  border: solid 2px steelblue;
+  opacity: 0.5;
+}
+
+.filter {
+  margin: 10px 0;
+}
+
+.loading {
+  margin-top: 10px;
+}

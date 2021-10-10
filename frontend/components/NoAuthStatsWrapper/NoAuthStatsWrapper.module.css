@@ -1,0 +1,20 @@
+.wrapperHeader {
+  margin: 10px 0;
+}
+
+.wrapperHeader * {
+  display: inline;
+  margin: auto;
+}
+
+.wrapperHeader span {
+  margin-right: 5px;
+}
+
+.filter {
+  margin: 10px 0;
+}
+
+.loading {
+  margin-top: 10px;
+}
