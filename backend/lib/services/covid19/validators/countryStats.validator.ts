@@ -9,6 +9,20 @@ class CountryStasValidator {
     }
     next();
   }
+
+  validatePaginationArgs({ query }: Request, res: Response, next: NextFunction) {
+    if (!query.limit) {
+      return res.status(400).send({
+        error: 'Query arg [limit] not fount',
+      });
+    }
+    if (!query.skip) {
+      return res.status(400).send({
+        error: 'Query arg [skip] not fount',
+      });
+    }
+    next();
+  }
 }
 
 export default new CountryStasValidator();

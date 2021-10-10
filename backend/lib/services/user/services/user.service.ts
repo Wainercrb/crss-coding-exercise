@@ -5,7 +5,7 @@ class UserService {
   signIn(): UserDto {
     return {
       token: createToken(),
-      userName: 'CRSS'
+      userName: `CRSS ${(Math.floor(Math.random() * 100))}`
     }
   }
 }

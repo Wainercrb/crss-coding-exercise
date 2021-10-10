@@ -18,6 +18,19 @@ export class CountryRoutes extends CommonRoutesConfig {
       CountryStatsController.getCountryStatsByCode
     );
 
+    this.app.get(
+      '/get-country-stats-by-code/:countryCode',
+      CountryStatsValidator.validateCountryCode,
+      CountryStatsController.getCountryStatsByCode
+    );
+
+    this.app.get(
+      '/get-all-country-stats',
+      this.checkGenericAuth,
+      CountryStatsValidator.validatePaginationArgs,
+      CountryStatsController.getAllCountryStats
+    );
+
     return this.app;
   }
 }
