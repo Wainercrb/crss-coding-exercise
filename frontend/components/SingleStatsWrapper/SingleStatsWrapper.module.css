@@ -1,0 +1,24 @@
+.singleStatsWrapper {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapperBody {
+  width: 80vw;
+}
+
+.wrapperHeader * {
+  display: inline;
+  margin: auto;
+}
+
+.wrapperHeader span {
+  margin-right: 5px;
+}
+
+.wrapperBody {
+  margin: 20px 0;
+}
+

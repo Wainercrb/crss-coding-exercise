@@ -40,7 +40,7 @@ export function Header() {
             <button onClick={() => signIn()}>Sign in</button>
           ) : (
             <div className={styles.authCtn}>
-              <button onClick={() => signOut()}>Sign auth</button>
+              <button onClick={() => signOut()}>Sign out</button>
               <span className={styles.userName}>{userName}</span>
             </div>
           )}

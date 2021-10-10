@@ -1,0 +1,30 @@
+.countryTable {
+  width: auto;
+  overflow: auto;
+}
+
+.countryTable thead {
+  background-color: lightgray;
+  height: 30px;
+}
+
+.countryTable tbody {
+  background-color: white;
+}
+
+.countryTable table {
+  text-align: left;
+  width: 100%;
+}
+
+.countryTable td {
+  border: 1px solid black;
+  height: 25px;
+}
+
+.headerIconCtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3px
+}

@@ -10,7 +10,6 @@ type TFetchArgs = {
 };
 
 const fetchRequest = async ({ url, headers, body, method }: TFetchArgs) => {
-  console.log('url', url);
   const response = await fetch(url, { headers, body, method });
   const data = await response.json();
   return {
@@ -21,4 +20,15 @@ const fetchRequest = async ({ url, headers, body, method }: TFetchArgs) => {
 
 export const fetchSignIn = async () => {
   return fetchRequest({ url: `${API_URL}/sign-in`, method: 'POST' });
+};
+
+export const fetchAllCountriesInf = async () => {
+  return fetchRequest({ url: `${API_URL}/all-countries-inf`, method: 'GET' });
+};
+
+export const fetchGetCountryByCode = async (countryCode: string) => {
+  return fetchRequest({
+    url: `${API_URL}/get-country-stats-by-code/${countryCode}`,
+    method: 'GET',
+  });
 };
